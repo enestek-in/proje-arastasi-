@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Arastası Başvuru Formu</title>
+    <style>
+        :root {
+            --gaun-navy: #003366;
+            --gaun-red: #cc0000;
+            --bg-gray: #f4f7f6;
+            --border-color: #ced4da;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-gray);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--gaun-navy);
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-icon { margin-right: 10px; }
+
+        .tabs {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 25px 0;
+        }
+
+        .tab-item {
+            display: inline-block;
+            padding: 10px 20px;
+            color: var(--gaun-red);
+            font-weight: bold;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            background: white;
+        }
+
+        form { padding: 25px; }
+
+        .section-title {
+            color: var(--gaun-navy);
+            border-bottom: 2px solid var(--gaun-navy);
+            padding-bottom: 5px;
+            margin: 25px 0 15px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .form-group { margin-bottom: 15px; }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--gaun-navy);
+            box-shadow: 0 0 5px rgba(0,51,102,0.2);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .checkbox-item input { margin-right: 8px; }
+
+        .file-upload {
+            padding: 10px;
+            background: #f0f0f0;
+            border: 2px dashed var(--border-color);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover { background-color: #357abd; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .checkbox-group { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span class="header-icon">🏠</span> / MÜHENDİSLİK FAKÜLTESİ
+    </div>
+
+    <div class="tabs">
+        <div class="tab-item">Proje Arastası Başvuru Formu</div>
+    </div>
+
+    <form action="#" method="POST" enctype="multipart/form-data">
+        
+        <div class="section-title">Katılımcı Bilgileri</div>
+        
+        <div class="form-group">
+            <label>Ad soyad / ekip adı (*)</label>
+            <input type="text" name="name_team" required>
+        </div>
+
+        <div style="display: flex; gap: 15px;">
+            <div class="form-group" style="flex: 1;">
+                <label>Üniversite / kurum (*)</label>
+                <input type="text" name="university" placeholder="Örn: Gaziantep Üniversitesi" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label>Ülke / Şehir (*)</label>
+                <select name="location" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="tr">Türkiye</option>
+                    <option value="other">Diğer (Uluslararası)</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 15px;">
+            <div class="form-group" style="flex: 1;">
+                <label>Öğrenim durumu (*)</label>
+                <select name="education_level" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="lisans">Lisans</option>
+                    <option value="yuksek_lisans">Yüksek Lisans</option>
+                    <option value="doktora">Doktora</option>
+                </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label>Dönem bilgisi (*)</label>
+                <select name="semester" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="güz">Güz Dönemi</option>
+                    <option value="bahar">Bahar Dönemi</option>
+                </select>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 15px;">
+            <div class="form-group" style="flex: 1;">
+                <label>Mail (*)</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label>Telefon (*)</label>
+                <input type="tel" name="phone" required>
+            </div>
+        </div>
+
+        <div class="section-title">Proje Detayları</div>
+
+        <div class="form-group">
+            <label>Proje başlığı (*)</label>
+            <input type="text" name="project_title" required>
+        </div>
+
+        
+        
+        
+            
+        
+    
+        
+                
+            
+
+
+        <div class="form-group">
+            <label>Kısa özet / Açıklama (*)</label>
+            <textarea name="description" rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Proje Görseli / Poster Yükle (*)</label>
+            <input type="file" name="project_file" class="file-upload" accept="image/*,application/pdf" required>
+        </div>
+
+        <div class="section-title">Mülakat ve Beklentiler</div>
+
+        <div class="form-group">
+            <label>Mülakat talebi (*)</label>
+            <div class="checkbox-item">
+                <input type="radio" name="interview_request" value="yes" id="m1" required>
+                <label for="m1" style="font-weight: normal; margin: 0;">Sanayicilerle mülakat yapmak istiyorum.</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="radio" name="interview_request" value="no" id="m2">
+                <label for="m2" style="font-weight: normal; margin: 0;">Sadece projemi sergilemek istiyorum.</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>İş birliği beklentisi</label>
+            <div class="checkbox-group">
+                <div class="checkbox-item"><input type="checkbox" name="collab[]" value="yatirim"> Yatırım/Finansman</div>
+                <div class="checkbox-item"><input type="checkbox" name="collab[]" value="is_staj"> İş/Staj Teklifi</div>
+                <div class="checkbox-item"><input type="checkbox" name="collab[]" value="mentorluk"> Mentorluk</div>
+                <div class="checkbox-item"><input type="checkbox" name="collab[]" value="prototip"> Prototip Geliştirme Desteği</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Talebi Gönder</button>
+    </form>
+</div>
+
+</body>
+</html>

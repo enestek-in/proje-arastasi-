@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Arastası Başvuru Formu</title>
+    <style>
+        :root {
+            --gaun-navy: #003366;
+            --gaun-red: #cc0000;
+            --bg-gray: #f4f7f6;
+            --border-color: #ced4da;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-gray);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--gaun-navy);
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tabs {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 25px 0;
+            background: #fafafa;
+        }
+
+        .tab-item {
+            display: inline-block;
+            padding: 10px 20px;
+            color: var(--gaun-red);
+            font-weight: bold;
+            border: 1px solid var(--border-color);
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            background: white;
+        }
+
+        form { padding: 30px; }
+
+        .section-title {
+            color: var(--gaun-navy);
+            border-left: 5px solid var(--gaun-red);
+            padding-left: 10px;
+            margin: 30px 0 15px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .instruction {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+            font-style: italic;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .project-title-input {
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 2px solid var(--gaun-navy) !important;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .checkbox-item input { margin-right: 10px; }
+
+        .file-upload-box {
+            padding: 20px;
+            background: #fff8f8;
+            border: 2px dashed var(--gaun-red);
+            text-align: center;
+            border-radius: 6px;
+        }
+
+        .btn-submit {
+            background-color: var(--gaun-navy);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .btn-submit:hover { background-color: #002244; transform: translateY(-2px); }
+
+        .row { display: flex; gap: 20px; }
+        .col { flex: 1; }
+
+        @media (max-width: 600px) {
+            .row { flex-direction: column; gap: 0; }
+            .checkbox-group { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div>🏠 / GAÜN MÜHENDİSLİK FAKÜLTESİ</div>
+        <div style="font-size: 0.9rem;">2025-2026 SPRING</div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab-item">PROJE ARASTASI OFFICIAL INTERFACE</div>
+    </div>
+
+    <form action="kaydet.php" method="POST" enctype="multipart/form-data">
+        
+        <div class="section-title">Academic & Author Details</div>
+        
+        <div class="form-group">
+            <label>Authors (Yazarlar) (*)</label>
+            <p class="instruction">Write names in bold, 24-point font style equivalent[cite: 22].</p>
+            <input type="text" name="authors" placeholder="John DOE, Jane DOE" required>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>Supervisor (Danışman) (*)</label>
+                <input type="text" name="supervisor" required>
+            </div>
+            <div class="col form-group">
+                <label>Department Name (Bölüm) (*)</label>
+                <input type="text" name="department" placeholder="e.g. Electrical and Electronics Engineering" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>University / Institution (*)</label>
+                <input type="text" name="university" value="Gaziantep University" required>
+            </div>
+            <div class="col form-group">
+                <label>Country / City (*)</label>
+                <select name="location" required>
+                    <option value="Turkey/Gaziantep">Turkey / Gaziantep</option>
+                    <option value="International">International (Global)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section-title">Project Content (Poster Standards)</div>
+
+        <div class="form-group">
+            <label>PROJECT TITLE (*)</label>
+            <p class="instruction">To be written in bold and ALL CAPITAL LETTERS.</p>
+            <input type="text" name="project_title" class="project-title-input" required>
+        </div>
+
+        <div class="form-group">
+            <label>Summary / Introduction (*)</label>
+            <p class="instruction">Introduce the subject and your research questions[cite: 33, 38].</p>
+            <textarea name="summary" rows="3" required></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>Objective (*)</label>
+                <p class="instruction">Explain what you want to achieve[cite: 41].</p>
+                <textarea name="objective" rows="3" required></textarea>
+            </div>
+            <div class="col form-group">
+                <label>Methodology (*)</label>
+                <p class="instruction">How did you conduct your study? [cite: 25, 26]</p>
+                <textarea name="methodology" rows="3" required></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Results / Findings (*)</label>
+            <p class="instruction">State what you've found (Avoid excessive jargon)[cite: 27, 29].</p>
+            <textarea name="results" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Conclusion & Recommendations (*)</label>
+            <p class="instruction">Summarize key findings and suggest future applications[cite: 34, 47].</p>
+            <textarea name="conclusion" rows="3" required></textarea>
+        </div>
+
+        <div class="section-title">Media & Collaboration</div>
+
+        <div class="form-group">
+            <label>Upload Project Poster / Image (*)</label>
+            <div class="file-upload-box">
+                <input type="file" name="project_file" accept="image/*,application/pdf" required>
+                <p style="font-size: 0.8rem; margin-top: 10px;">Supported formats: PDF, JPG, PNG (Max 10MB)</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col form-group">
+                <label>Interview Request (*)</label>
+                <div class="checkbox-item">
+                    <input type="radio" name="interview" value="yes" id="i1" required>
+                    <label for="i1" style="font-weight: normal; margin: 0;">I want to interview with industrialists.</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="radio" name="interview" value="no" id="i2">
+                    <label for="i2" style="font-weight: normal; margin: 0;">Presentation only.</label>
+                </div>
+            </div>
+            <div class="col form-group">
+                <label>Collaboration Expectation</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item"><input type="checkbox" name="collab[]" value="investment"> Investment</div>
+                    <div class="checkbox-item"><input type="checkbox" name="collab[]" value="internship"> Job/Internship</div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">SUBMIT PROJECT TO ARASTA</button>
+    </form>
+</div>
+
+</body>
+</html>
